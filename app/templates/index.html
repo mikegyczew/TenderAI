@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tender AI</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>🤖 Tender AI</h1>
+            <p>Analizuj dokumenty przetargowe za pomocą AI</p>
+        </header>
+
+        <main>
+
+            <section class="card">
+
+                <h2>📄 Dokument przetargowy</h2>
+
+                <p class="description">
+                    Wklej tutaj treść raportu lub ogłoszenia o przetargu.
+                </p>
+
+                <textarea
+                    id="document"
+                    placeholder="Wklej tutaj treść dokumentu..."
+                ></textarea>
+
+                <button onclick="analyzeDocument()">
+                    🔍 Analizuj dokument
+                </button>
+
+            </section>
+
+            <section id="result" class="card result hidden">
+
+                <h2>📊 Wynik analizy</h2>
+
+                <div id="resultText"></div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="/static/app.js"></script>
+
+</body>
+</html>
