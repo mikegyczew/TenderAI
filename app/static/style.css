@@ -50,6 +50,82 @@ textarea {
     margin: 15px 0;
 }
 
+#documentFile {
+    padding: 10px;
+    background: #f9fafb;
+}
+
+#questions {
+    min-height: 150px;
+}
+
+#analysisForm.collapsed {
+    display: none;
+}
+
+.analysis-status {
+    margin: 0;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+.source-options {
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    margin: 20px 0;
+    padding: 14px;
+}
+
+.source-options legend {
+    font-weight: 600;
+    padding: 0 6px;
+}
+
+.source-options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 20px;
+    font-weight: 400;
+}
+
+.source-options input {
+    display: inline-block;
+    width: auto;
+    margin: 0;
+    padding: 0;
+}
+
+input {
+    display: block;
+    width: 100%;
+    margin: 8px 0 16px;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+label {
+    font-weight: 600;
+}
+
+.login-card {
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.error {
+    min-height: 24px;
+    color: #b91c1c;
+}
+
+.secondary {
+    background: #6b7280;
+    margin-top: 12px;
+}
+
 button {
     border: none;
     border-radius: 10px;
@@ -64,6 +140,11 @@ button:hover {
     background: #1d4ed8;
 }
 
+button:disabled {
+    cursor: wait;
+    opacity: 0.65;
+}
+
 .hidden {
     display: none;
 }
@@ -75,4 +156,14 @@ button:hover {
 #resultText {
     white-space: pre-wrap;
     line-height: 1.7;
+}
+
+#resultText article + article {
+    border-top: 1px solid #e5e7eb;
+    margin-top: 20px;
+    padding-top: 20px;
+}
+
+#resultText h3 {
+    margin-bottom: 8px;
 }

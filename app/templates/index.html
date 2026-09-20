@@ -14,34 +14,84 @@
         <header>
             <h1>🤖 Tender AI</h1>
             <p>Analizuj dokumenty przetargowe za pomocą AI</p>
+            <button id="logoutButton" class="secondary hidden" onclick="logout()">
+                Wyloguj
+            </button>
         </header>
 
         <main>
 
-            <section class="card">
+            <section id="loginCard" class="card login-card">
+                <h2>Logowanie</h2>
+                <form id="loginForm" onsubmit="login(event)">
+                    <label for="username">Login</label>
+                    <input id="username" name="username" type="text" required autocomplete="username">
+
+                    <label for="password">Hasło</label>
+                    <input id="password" name="password" type="password" required autocomplete="current-password">
+
+                    <button type="submit">Zaloguj</button>
+                    <p id="loginError" class="error"></p>
+                </form>
+            </section>
+
+            <section id="analyzerCard" class="card hidden">
 
                 <h2>📄 Dokument przetargowy</h2>
 
                 <p class="description">
-                    Wklej tutaj treść raportu lub ogłoszenia o przetargu.
+                    Wybierz sposób wczytania dokumentu i wpisz pytania, na które ma odpowiedzieć AI.
                 </p>
 
-                <textarea
-                    id="document"
-                    placeholder="Wklej tutaj treść dokumentu..."
-                ></textarea>
+                <div id="analysisForm">
+                    <fieldset class="source-options">
+                    <legend>Źródło dokumentu</legend>
+                    <label>
+                        <input type="radio" name="sourceMode" value="text" checked>
+                        Wklej tekst
+                    </label>
+                    <label>
+                        <input type="radio" name="sourceMode" value="file">
+                        Załącz plik PDF
+                    </label>
+                    </fieldset>
 
-                <button onclick="analyzeDocument()">
-                    🔍 Analizuj dokument
-                </button>
+                    <div id="textSource">
+                        <label for="document">Treść dokumentu</label>
+                        <textarea
+                            id="document"
+                            placeholder="Wklej tutaj treść dokumentu..."
+                        ></textarea>
+                    </div>
+
+                    <div id="fileSource" class="hidden">
+                        <label for="documentFile">Plik PDF</label>
+                        <input id="documentFile" name="file" type="file" accept="application/pdf,.pdf">
+                    </div>
+
+                    <label for="questions">Pytania</label>
+                    <textarea
+                        id="questions"
+                        name="questions"
+                        placeholder="Wpisz jedno pytanie w każdej linii..."
+                        required
+                    ></textarea>
+
+                    <p id="analyzeError" class="error"></p>
+
+                    <button id="analyzeButton" onclick="analyzeDocument()">
+                        🔍 Analizuj dokument
+                    </button>
+                </div>
+
+                <p id="analysisStatus" class="analysis-status hidden" aria-live="polite"></p>
 
             </section>
 
             <section id="result" class="card result hidden">
-
                 <h2>📊 Wynik analizy</h2>
 
-                <div id="resultText"></div>
+                <div id="resultText" aria-live="polite"></div>
 
             </section>
 
@@ -49,7 +99,7 @@
 
     </div>
 
-    <script src="/static/app.js"></script>
+    <script src="/static/app.js?v=3"></script>
 
 </body>
 </html>
